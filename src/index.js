@@ -15,18 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
       image:formData.get('image'),
       likes:0,
     }
-    
+
     console.log(toy);
-    
-    
+
+
     fetch('http://localhost:3000/toys',{
       method:'POST',
-  headers: 
+  headers:
   {
     "Content-Type": "application/json",
     Accept: "application/json"
   },
-   
+
   body: JSON.stringify(toy),
 
       });
@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (addToy) {
       toyForm.style.display = "block";
 
-   
+
     } else {
       toyForm.style.display = "none";
-  
+
     }
 
 
@@ -75,11 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function increaseLikes(id,likes){
   console.log(id);
   console.log(likes);
-  
-  
+
+
 fetch(`http://localhost:3000/toys/${id.toString()}`,{
   method:'PATCH',
-headers: 
+headers:
 {
   "Content-Type": "application/json",
   Accept: "application/json"
@@ -92,4 +92,3 @@ headers:
 
   });
 }
-
